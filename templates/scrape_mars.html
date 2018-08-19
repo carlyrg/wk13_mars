@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mission To Mars</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/modern-business.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="jumbotron text-center">
+            <h1 class=display>Mission to Mars</h1>
+            <p>
+                <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a>
+            </p>
+        </div>
+
+
+        <!-- Latest news -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Latest Mars News</h4>
+                <h6>{{ mars_news["title"]}}</h6>
+                <p>{{ mars_news['body']}}</p>
+                <hr>
+            </div>
+        </div>
+
+
+
+        <!-- Feature Image -->
+        <div class="container d-flex">
+            <div class="row">
+                <div class="col-md-8">
+                    <h4>Featured Mars Image</h4>
+                    <img class="img-fluid rounded" src="{{ mars_img['img'] }}" alt="Mars Image">
+                </div>
+
+
+                <!--Mars tweet weather-->
+                <!-- <div class="card"> -->
+                <div class="card col-md-4">
+                    <h5 class="card-header">Latest Tweet about Mars</h5>
+                    <div class="card-body">
+                        <!-- <div class="row">-->
+                        <!-- <div class="col"> -->
+                        <p> {{mars_tweet['tweet']}}</p>
+                    </div>
+
+                    <hr>
+
+                    <h5 class="card-header">Mars facts</h5>
+                    <div class="card-body">
+                        <table class="small table table-st">
+                            <thead>
+                                <tr style="text-align: left;">
+                                    <th>description</th>
+                                    <th>value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Equatorial Diameter:</td>
+                                    <td>6,792 km</td>
+                                </tr>
+                                <tr>
+                                    <td>Polar Diameter:</td>
+                                    <td>6,752 km</td>
+                                </tr>
+                                <tr>
+                                    <td>Mass:</td>
+                                    <td>6.42 x 10^23 kg (10.7% Earth)</td>
+                                </tr>
+                                <tr>
+                                    <td>Moons:</td>
+                                    <td>2 (Phobos &amp; Deimos)</td>
+                                </tr>
+                                <tr>
+                                    <td>Orbit Distance:</td>
+                                    <td>227,943,824 km (1.52 AU)</td>
+                                </tr>
+                                <tr>
+                                    <td>Orbit Period:</td>
+                                    <td>687 days (1.9 years)</td>
+                                </tr>
+                                <tr>
+                                    <td>Surface Temperature:</td>
+                                    <td>-153 to 20 °C</td>
+                                </tr>
+                                <tr>
+                                    <td>First Record:</td>
+                                    <td>2nd millennium BC</td>
+                                </tr>
+                                <tr>
+                                    <td>Recorded By:</td>
+                                    <td>Egyptian astronomers</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!-- Hemisphere Images -->
+        <div class="row pb-3">
+            <div class='col-md-12'>
+                <h4 class="text-center">Mars' Hemispheres</h4>
+                <div class="row">
+                 {% for hemisphere in mars_hemispheres %}
+                <div class="col-md-6">
+                <div class="card">
+                    <img class="card-img-top " src="{{mars_hemispheres['img_url']}}" alt="{{mars_hemispheres['img_title']}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{mars_hemispheres['img_title']}}</h5>
+                    </div>
+                </div>
+                </div>
+                {%endfor%}
+             </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
